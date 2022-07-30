@@ -103,6 +103,13 @@
 						head.add_mob_blood(src)
 						update_inv_head()
 
+		//dismemberment
+		var/probability = I.get_dismemberment_chance(affecting)
+		if(prob(probability))
+			if(affecting.dismember(I.damtype))
+				I.add_mob_blood(src)
+				playsound(get_turf(src), I.get_dismember_sound(), 80, TRUE)
+
 		return TRUE //successful attack
 
 /mob/living/carbon/send_item_attack_message(obj/item/I, mob/living/user, hit_area, obj/item/bodypart/hit_bodypart)
