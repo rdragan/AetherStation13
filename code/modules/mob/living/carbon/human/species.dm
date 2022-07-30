@@ -1445,6 +1445,13 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(!I.force)
 		return FALSE //item force is zero
 
+	// Dismemberment
+	var/probability = I.get_dismemberment_chance(affecting)
+	if(prob(probability) || (HAS_TRAIT(H, TRAIT_EASYDISMEMBER) && prob(probability))) //try twice
+		if(affecting.dismember(I.damtype))
+			I.add_mob_blood(H)
+			// playsound(get_turf(H), I.get_dismember_sound(), 80, TRUE)
+
 	var/bloody = FALSE
 	if(((I.damtype == BRUTE) && I.force && prob(25 + (I.force * 2))))
 		if(affecting.status == BODYPART_ORGANIC)
