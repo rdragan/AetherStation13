@@ -676,3 +676,9 @@
 	for(var/i in rand(1, created_volume) to created_volume)
 		new /mob/living/simple_animal/ant(location)
 	..()
+
+/datum/chemical_reaction/eigenstate
+	results = list(/datum/reagent/eigenstate = 1)
+	required_reagents = list(/datum/reagent/bluespace = 1, /datum/reagent/stable_plasma = 1, /datum/reagent/consumable/caramel = 1)
+	mix_message = "the reaction zaps suddenly!"
+	mix_sound = 'sound/chemistry/bluespace.ogg'
