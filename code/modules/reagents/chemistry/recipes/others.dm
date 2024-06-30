@@ -682,3 +682,16 @@
 	required_reagents = list(/datum/reagent/bluespace = 1, /datum/reagent/stable_plasma = 1, /datum/reagent/consumable/caramel = 1)
 	mix_message = "the reaction zaps suddenly!"
 	mix_sound = 'sound/chemistry/bluespace.ogg'
+
+/datum/chemical_reaction/eigenstate/on_reaction(datum/reagents/holder, react_vol)
+	. = ..()
+	var/turf/open/location = get_turf(holder.my_atom)
+
+	var/datum/reagent/eigenstate/eigen = holder.has_reagent(/datum/reagent/eigenstate)
+	if(!eigen)
+		return
+	if(location)
+		eigen.location_created = location
+		eigen.data["location_created"] = location
+
+	do_sparks(5,FALSE,location)
