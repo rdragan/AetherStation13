@@ -49,7 +49,6 @@
 
 /**
  * Shit that happens on reaction
- * Only procs at the START of a reaction
  *
  * Proc where the additional magic happens.
  * You dont want to handle mob spawning in this since there is a dedicated proc for that.client
