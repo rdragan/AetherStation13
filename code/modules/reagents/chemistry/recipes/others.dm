@@ -680,6 +680,7 @@
 /datum/chemical_reaction/eigenstate
 	results = list(/datum/reagent/eigenstate = 1)
 	required_reagents = list(/datum/reagent/bluespace = 1, /datum/reagent/stable_plasma = 1, /datum/reagent/consumable/caramel = 1)
+	required_temp = 350
 	mix_message = "the reaction zaps suddenly!"
 	mix_sound = 'sound/chemistry/bluespace.ogg'
 
