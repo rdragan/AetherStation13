@@ -1,0 +1,4 @@
+author: Thebleh
+delete-after: true
+changes:
+  - bugfix: Eigenstasium can once again be made.
